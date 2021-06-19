@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- <script src="display_card.js"></script> -->
+    <script src="createEvent.js"></script>
+    <script src="index.js"></script>
+    <title>Home</title>
+    <style>
+        img {
+            width: 125%;
+            float: left;
+            margin: 1.66%;
+        }
+
+        .nav {
+            background: transparent;
+        }
+
+        .navbar {
+            margin: 10px;
+        }
+
+        body,
+        html {
+            background-image: url("background-img.png");
+            height: 100%;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-size: 50px;
+            text-align: center;
+            font-weight: 800;
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-size: 40px;
+            text-align: center;
+            font-weight: 800;
+            margin-top: 50px;
+        }
+
+        .margin-small {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item ">
+                    <a class="nav-link text-dark" href="help.html"
+                        style="font-family:'Courier New', Courier, monospace; font-weight:bolder;">Help</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-dark" href="login.html"
+                        style="font-family:'Courier New', Courier, monospace; font-weight:bolder;">Log in</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-dark" href="signup.html"
+                        style="font-family:'Courier New', Courier, monospace; font-weight:bolder;">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 120px;">
+        <div class="row">
+            <div class="col-6">
+                <h1>Discover events for all the things you love</h1>
+                <button onclick="signupRoute()" type="button" class="btn btn-success btn-lg btn-block"
+                    style="margin-top: 50px;">
+                    <h5>START A NEW ADVENTURE</h5>
+                </button>
+            </div>
+            <div class="col-6">
+                <img src="img3.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button onclick="createEventRoute()" type="button" class="btn btn-danger btn-lg btn-block">
+                    <h5>CREATE A NEW EVENT!</h5>
+                </button>
+            </div>
+        </div>
+        <!--
+        <div class="container bg-white rounded">
+            <form style="padding:10px;">
+                <div class="form-row">
+                    <div class="col-8">
+                        <input type="search" class="form-control" placeholder="Search any event">
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-outline-primary btn-block" style="font-family: cursive;"><i
+                                class="fa fa-search"></i> Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>-->
+        <div class="container">
+            <div class="row">
+                <h2>Events near You</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row margin-small">
+                <div class="card-deck" id="id">
+                </div>
+            </div>
+
+            <div class="row margin-small">
+                <button onclick="details_fetch()" type="button" class="btn btn-primary btn-lg btn-block"
+                    style="margin-left: 150px; margin-right: 150px; margin-bottom: 25px;">See More</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

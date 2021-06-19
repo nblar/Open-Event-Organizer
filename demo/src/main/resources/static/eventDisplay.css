@@ -1,0 +1,34 @@
+#logo_img{
+    width:30px;
+}
+body{
+    background-image: url("background-img.png");
+}
+.nav-link{  
+    font-weight: bolder;
+    font-family:cursive;
+    font-size: larger;
+}
+#login-logo
+{
+    width: 5%;
+    height: 5%;
+}
+#eventHeader{
+    font-family: cursive;
+}
+#event-title{
+    font-weight: 900;
+}
+#eventImage{
+    width: 95%;
+    float: left;
+}
+.eventDisplayText{
+    font-weight: bolder;
+    font-style: cursive;
+}
+#eventDescription{
+    font-weight: 900;
+    font-style: cursive;
+}
