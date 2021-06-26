@@ -1,0 +1,80 @@
+#logo_img{
+    width:30px;
+}
+body{
+    background-image: url("background-img.png");
+}
+.nav-link{  
+    font-weight: bold;
+    font-family:cursive;
+    font-size:larger;
+}
+.icon-link{
+    font-size:1rem;
+}
+#login-logo
+{
+    width: 2%;
+    height: 2%;
+}
+.nav-img{
+    margin-left:40%;
+    width:1.5rem;
+    height:1.5rem;
+}
+.filters-container{
+    background-color: #f8f7fa;
+}
+
+.body-container{    
+    height:100%;
+}
+.filters-container h2{
+    font-family: cursive;
+    margin-left: 32px;
+    padding-top: 64px;
+    padding-bottom: 32px;
+    font-weight: bold;
+    border-bottom: 2px solid gray;
+}
+.your-events{
+    font-family: cursive;
+    padding:0 35%;
+    font-weight: bold;
+}
+.events-container{
+    padding-top:64px;
+}
+.event-card-container{
+    margin-left: 64px;
+}
+.filters-container h3{
+    font-family: cursive;
+    font-weight: bold;
+}
+.btn-attend-event{
+    padding-top:100px;
+}
+.filters-container .type-form{
+    font-family: cursive;
+    margin-left: 32px;
+    margin-bottom:32px;
+}
+#eventHeader{
+    font-family: cursive;
+}
+#event-title{
+    font-weight: 900;
+}
+#eventImage{
+    width: 95%;
+    float: left;
+}
+.eventDisplayText{
+    font-weight: bolder;
+    font-style: cursive;
+}
+#eventDescription{
+    font-weight: 900;
+    font-style: cursive;
+}
