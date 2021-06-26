@@ -67,12 +67,11 @@ function printDate() {
     xhr.send(data);
 
 }
-function displayEventDetails(cardID) {
-    window.location.href="eventDisplay.html";
-    var event_Title=document.getElementById("event-title");
-    event_Title.innerHTML="Pull from here";
-    
+function sendEventID(cardID)
+{
+    displayEventDetails(cardID);
 }
+
 function details_fetch() {
 
     var data = "";
@@ -98,7 +97,7 @@ function details_fetch() {
                 let date = details[9];
                 let description = details[11];
                 let img1 = details[12];
-                var card = `<div id=${eventID} class="card"><a href="javascript:dislayEventDetails(${eventID})"><img src=${img1} class="card-img-top" width="150px" alt="..."></a><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${date} ${time}</p><p class="card-text">${description}</p><p class="card-text"><small class="text-muted">By Coding Club</small></p></div></div>`;
+                var card = `<div id=${eventID} class="card"><a href="javascript:sendEventID(${eventID})"><img src=${img1} class="card-img-top" width="150px" alt="..."></a><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${date} ${time}</p><p class="card-text">${description}</p><p class="card-text"><small class="text-muted">By Coding Club</small></p></div></div>`;
                 display.innerHTML += card;
             });
 
