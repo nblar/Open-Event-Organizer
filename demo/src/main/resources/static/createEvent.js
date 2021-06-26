@@ -69,6 +69,7 @@ function printDate() {
 }
 function sendEventID(cardID)
 {
+	console.log("************",cardID.querySelector(".card-title").innerHTML);
     displayEventDetails(cardID);
 }
 
