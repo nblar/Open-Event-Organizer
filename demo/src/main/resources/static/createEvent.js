@@ -67,9 +67,8 @@ function printDate() {
     xhr.send(data);
 
 }
-function sendEventID(cardID)
-{
-	console.log("************",cardID.querySelector(".card-title").innerHTML);
+function sendEventID(cardID) {
+    console.log("************", cardID.querySelector(".card-title").innerHTML);
     displayEventDetails(cardID);
 }
 
@@ -84,7 +83,7 @@ function details_fetch() {
             let elem = this.responseText;
             let obj = JSON.parse(elem);
             console.log(obj);
-            var card_id=1;
+            var card_id = 1;
             var display = document.getElementById('id');
             Object.keys(obj).forEach(function (key) {
                 let details = obj[key];
@@ -98,7 +97,7 @@ function details_fetch() {
                 let date = details[9];
                 let description = details[11];
                 let img1 = details[12];
-                var card = `<div id=${eventID} class="card"><a href="javascript:sendEventID(${eventID})"><img src=${img1} class="card-img-top" width="150px" alt="..."></a><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${date} ${time}</p><p class="card-text">${description}</p><p class="card-text"><small class="text-muted">By Coding Club</small></p></div></div>`;
+                var card = `<div id=${eventID} class="card"><a href="eventDisplay.html?id=${eventID}&title=${title}&img=${img1}&time=${time}&date=${date}&eventType=${eventType}&description=${description}&category=${category}&venue=${venue}"><img src=${img1} class="card-img-top" width="150px" alt="..."></a><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${date} ${time}</p><p class="card-text">${description}</p><p class="card-text"><small class="text-muted">By Coding Club</small></p></div></div>`;
                 display.innerHTML += card;
             });
 
