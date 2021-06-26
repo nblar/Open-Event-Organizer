@@ -16,7 +16,7 @@
 
             if(status_code==202){
             console.log("Success");
-            window.location.replace("index.html");
+            window.location.href=`userDashboard.html?emailID=${eid}`;
             }
 
             else{
