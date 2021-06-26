@@ -22,7 +22,7 @@ function details_fetch() {
             let time = details[6];
             let date = details[9];
             let description = details[11];
-            var card = `<div class="card"><a href="eventDisplay.html"><img src="img2.png" class="card-img-top" alt="..."></a><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${date} ${time}</p><p class="card-text">${description}</p><p class="card-text"><small class="text-muted">By Coding Club</small></p></div></div>`;
+            var card = `<div class="card"><a href="javascript:void(0)" onclick="getCardDetails(this)"><img src="img2.png" class="card-img-top" alt="..."></a><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${date} ${time}</p><p class="card-text">${description}</p><p class="card-text"><small class="text-muted">By Coding Club</small></p></div></div>`;
             display.innerHTML += card;
         });
         
