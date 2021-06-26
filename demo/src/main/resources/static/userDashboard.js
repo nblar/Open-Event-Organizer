@@ -12,11 +12,30 @@ function dashDetails() {
                 console.log("Success");
                 let elem = this.responseText;
                 let obj = JSON.parse(elem);
+                var display = document.querySelector(".event-card-container");
                 Object.keys(obj).forEach(function (key) {
                     let details = obj[key];
                     console.log(obj[key]);
-                    username.innerHTML=details[0];
+                    username.innerHTML = details[14];
+                    var card = `  <div class="row">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="${details[12]}" class="card-img" alt="...">
+                            </div>
+                            <div class="col-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">${details[1]}</h5>
+                                    <p class="card-text">${details[11]}</p>
+                                    <a href="eventDisplay.html?eventType=${eventType}&id=${eventID}&title=${title}&img=${img1}&startTime=${startTime}&endTime=${endTime}&startDate=${startDate}&endDate=${endDate}&eventType=${eventType}&description=${description}&category=${category}&venue=${venue}" class="btn btn-primary">More details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+                    display.innerHTML += card;
                 });
+
             }
 
         }
@@ -28,4 +47,4 @@ function dashDetails() {
     xhr.send(data);
 }
 
-document.addEventListener("DOMContentLoaded",dashDetails,false);
+document.addEventListener("DOMContentLoaded", dashDetails, false);
