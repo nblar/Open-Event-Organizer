@@ -136,8 +136,9 @@ public class event_details {
      
 	public String entry() {
 		
-		String str="insert into event values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String str="insert into event values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		String query="select Id from login where email=?";
+		String query2="insert into userEvents values (?, ?)";
 		Integer id=0;
 		try (
 	   			 Connection conn = DriverManager.getConnection(
@@ -173,10 +174,14 @@ public class event_details {
 			 pre.setString(12, description);
 			 pre.setString(13, imgUrl1);
 			 pre.setString(14, imgUrl2);
-			 
+			 pre.setString(15, email);
 			 pre.execute();
 				 
-			 
+			 pre= conn.prepareStatement(query2);
+			 pre.setString(1,email);
+			 pre.setString(2, Eid);
+			 pre.execute();
+					 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

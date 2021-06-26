@@ -8,7 +8,7 @@ function dashDetails() {
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
             var status_code = this.status;
-            if (status_code == 202) {
+            if (status_code == 200) {
                 console.log("Success");
                 let elem = this.responseText;
                 let obj = JSON.parse(elem);
@@ -21,9 +21,11 @@ function dashDetails() {
 
         }
     });
-    xhr.open("POST", "http://localhost:8080/login");
+    xhr.open("POST", "http://localhost:8080/userDashboard");
     xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE1OTg1ODY4OTQsImlhdCI6MTU5ODU1MDg5NH0.rnwwXGxDN5z3Y7Cz0z_MeCwpUJ0RLbVvYce5xYWMwd8");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(data);
 }
+
+document.addEventListener("DOMContentLoaded",dashDetails,false);
