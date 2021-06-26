@@ -8,11 +8,12 @@ function putEventDetails(){
     var description=document.getElementById("eventDescription");
     var category=document.getElementById("category");
     var params=(new URL(document.location)).searchParams;
+    var event_date= document.getElementById('date');
     
     event_Title.innerHTML=params.get("title");
     event_Img.src=params.get("img");
-    event_date.innerHTML=params.get("startDate")+"to"+params.get("endDate");
-    event_time.innerHTML=params.get("startTime")+"to"+params.get("endTime");
+    event_date.innerHTML=params.get("startDate")+" to "+params.get("endDate");
+    event_time.innerHTML=params.get("startTime")+" to "+params.get("endTime");
     event_type.innerHTML=params.get("eventType");
     venue.innerHTML=params.get("venue");
     description.innerHTML=params.get("description");

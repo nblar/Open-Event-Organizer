@@ -99,7 +99,7 @@ function details_fetch() {
                 let endDate=details[10];
                 let description = details[11];
                 let img1 = details[12];
-                var card = `<div id=${eventID} class="card"><a href="eventDisplay.html?eventType=${eventType}&id=${eventID}&title=${title}&img=${img1}&startTime=${startTime}&endTime=${endTime}&startDate=${startDate}&endDate=${endDate}&eventType=${eventType}&description=${description}&category=${category}&venue=${venue}"><img src=${img1} class="card-img-top" width="150px" alt="..."></a><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${date} ${time}</p><p class="card-text">${description}</p><p class="card-text"><small class="text-muted">By Coding Club</small></p></div></div>`;
+                var card = `<div id=${eventID} class="card"><a href="eventDisplay.html?eventType=${eventType}&id=${eventID}&title=${title}&img=${img1}&startTime=${startTime}&endTime=${endTime}&startDate=${startDate}&endDate=${endDate}&eventType=${eventType}&description=${description}&category=${category}&venue=${venue}"><img src=${img1} class="card-img-top" width="150px" alt="..."></a><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${startDate} ${startTime}</p><p class="card-text">${description}</p><p class="card-text"><small class="text-muted">By Coding Club</small></p></div></div>`;
                 display.innerHTML += card;
             });
 
