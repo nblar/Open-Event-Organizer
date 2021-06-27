@@ -47,4 +47,3 @@ function dashDetails() {
     xhr.send(data);
 }
 
-document.getElementById("manage_events").addEventListener("click", dashDetails, false);
