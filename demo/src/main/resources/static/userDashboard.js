@@ -3,7 +3,7 @@ function dashDetails() {
     var data = JSON.stringify({ "email": params.get("emailID") });
     var xhr = new XMLHttpRequest();
     let display = document.querySelector(".event-card-container");
-    display.innerHTML="";
+    display.innerHTML='';
     xhr.withCredentials = false;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
@@ -17,7 +17,7 @@ function dashDetails() {
                 {  
                     display.innerHTML='<h3">No Events Created<h3>';
                 }else{
-                    display.innerHTML="";
+                    display.innerHTML='';
                     Object.keys(obj).forEach(function (key) {
                         let details = obj[key];
                         console.log(obj[key]);
@@ -107,7 +107,7 @@ function displayAttendedEvents(){
     var params = (new URL(document.location)).searchParams;
     var data = JSON.stringify({ "email": params.get("emailID") });
     let display = document.querySelector(".event-card-container");
-    display.innerHTML="";
+    display.innerHTML='';
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
     xhr.addEventListener("readystatechange", function () {
