@@ -54,14 +54,15 @@ function attendEvent(){
 
 //Check if current user has already registered for this event
 function attendedEvent(){
-        var data = JSON.stringify({ "userEmail": localStorage.getItem("email"),"eventId": params.get("id")});
+		var params=(new URL(document.location)).searchParams;
+        var data = JSON.stringify({ "email": localStorage.getItem("email"),"eventId": params.get("id")});
         console.log(data);
         var xhr = new XMLHttpRequest();
         xhr.withCredentials = false;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
                 var status_code = this.status;
-                if (status_code == 200) {
+                if (status_code == 202) {
                   console.log("event already added for this user");
                   document.getElementById("attendButton").disabled=true;
                 }
