@@ -7,9 +7,11 @@ function putEventDetails(){
     var venue=document.getElementById("venue");
     var description=document.getElementById("eventDescription");
     var category=document.getElementById("category");
+    var shareFriends=document.getElementById("share");
     var params=(new URL(document.location)).searchParams;
     var event_date= document.getElementById('date');
     
+    shareFriends.innerHTML=document.location;
     event_Title.innerHTML=params.get("title");
     event_Img.src=params.get("img");
     event_date.innerHTML=params.get("startDate")+" to "+params.get("endDate");
@@ -38,6 +40,7 @@ function attendEvent(){
                 if (status_code == 200) {
                   console.log("event added for this user");
                   document.getElementById("attendButton").disabled=true;
+                  alert("You have registered as an attendee for this event");
                 }
             }
         });
@@ -48,3 +51,26 @@ function attendEvent(){
         console.log("data send");
     }
 }
+
+//Check if current user has already registered for this event
+function attendedEvent(){
+        var data = JSON.stringify({ "userEmail": localStorage.getItem("email"),"eventId": params.get("id")});
+        console.log(data);
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                var status_code = this.status;
+                if (status_code == 200) {
+                  console.log("event already added for this user");
+                  document.getElementById("attendButton").disabled=true;
+                }
+            }
+        });
+        xhr.open("POST", "http://localhost:8080/attendedEvent");
+        xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE1OTg1ODY4OTQsImlhdCI6MTU5ODU1MDg5NH0.rnwwXGxDN5z3Y7Cz0z_MeCwpUJ0RLbVvYce5xYWMwd8");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(data);
+        console.log("data send");
+}
+document.addEventListener("DOMContentLoaded",attendedEvent,false);

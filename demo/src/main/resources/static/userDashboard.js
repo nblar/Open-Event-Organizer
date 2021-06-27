@@ -1,9 +1,6 @@
 function dashDetails() {
     var params = (new URL(document.location)).searchParams;
-    
-    var username = document.getElementById("username");
     var data = JSON.stringify({ "email": params.get("emailID") });
-    username.innerHTML = params.get("emailID");
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
     xhr.addEventListener("readystatechange", function () {
@@ -72,3 +69,9 @@ function deleteEvent(userEmail,eventID) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
 }
+function setUserName()
+{
+    var username = document.getElementById("username");
+    username.innerHTML=localStorage.getItem("email");
+}
+document.addEventListener("DOMContentLoaded",setUserName,false);

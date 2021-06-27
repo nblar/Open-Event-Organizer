@@ -10,3 +10,13 @@ function getCardDetails(card){
     console.log(title);
     console.log(description);
 }
+
+function loggedInChanges()
+{
+    if(!(localStorage.getItem("email")===null))
+    {
+        var email=localStorage.getItem("email");
+        document.getElementById("login").innerHTML=email;
+        document.getElementById("login").href=`userDashboard.html?emailID=${email}`;
+    }
+}
