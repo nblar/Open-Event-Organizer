@@ -10,33 +10,39 @@ function dashDetails() {
                 console.log("Success");
                 let elem = this.responseText;
                 let obj = JSON.parse(elem);
+               
                 var display = document.querySelector(".event-card-container");
-                
-                Object.keys(obj).forEach(function (key) {
-                    let details = obj[key];
-                    console.log(obj[key]);
-                    
-                    var card = `  <div class="row">
-                    <div class="card" id="${details[0]}">
-                        <div class="row">
-                            <div class="col-3">
-                                <img src="${details[12]}" class="card-img" alt="...">
-                            </div>
-                            <div class="col-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">${details[1]}</h5>
-                                    <p class="card-text">${details[11]}</p>
-                                    <a href="eventDisplay.html?eventType=${details[3]}&id=${details[0]}&title=${details[1]}&img=${details[12]}&startTime=${details[6]}&endTime=${details[7]}&startDate=${details[9]}&endDate=${details[10]}&description=${details[11]}&category=${details[4]}&venue=${details[5]}" class="btn btn-primary">More details</a>
+                if(obj==null)
+                {
+                    display.innerHTML='<h3 style="text-align:center;">No Events Created<h3>';
+                }else{
+                    Object.keys(obj).forEach(function (key) {
+                        let details = obj[key];
+                        console.log(obj[key]);
+                        
+                        var card = `  <div class="row">
+                        <div class="card" id="${details[0]}">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="${details[12]}" class="card-img" alt="...">
+                                </div>
+                                <div class="col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${details[1]}</h5>
+                                        <p class="card-text">${details[11]}</p>
+                                        <a href="eventDisplay.html?eventType=${details[3]}&id=${details[0]}&title=${details[1]}&img=${details[12]}&startTime=${details[6]}&endTime=${details[7]}&startDate=${details[9]}&endDate=${details[10]}&description=${details[11]}&category=${details[4]}&venue=${details[5]}" class="btn btn-primary">More details</a>
+                                    </div>
+                                </div>
+                                <div class="col-3 btn-attend-event">
+                                    <button type="button" onclick="deleteEvent('${details[14]}','${details[0]}');" class="btn btn-block  btn-outline-danger">Delete Event</button>
                                 </div>
                             </div>
-                            <div class="col-3 btn-attend-event">
-                                <button type="button" onclick="deleteEvent('${details[14]}','${details[0]}');" class="btn btn-block  btn-outline-danger">Delete Event</button>
-                            </div>
                         </div>
-                    </div>
-                </div>`;
-                    display.innerHTML += card;
-                });
+                    </div>`;
+                        display.innerHTML += card;
+                    });
+                }
+              
 
             }
 
