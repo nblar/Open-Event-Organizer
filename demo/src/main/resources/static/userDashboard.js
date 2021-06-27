@@ -1,6 +1,6 @@
 function dashDetails() {
     var params = (new URL(document.location)).searchParams;
-    localStorage.setItem("userName", params.get("emailID"))
+    
     var username = document.getElementById("username");
     var data = JSON.stringify({ "email": params.get("emailID") });
     var xhr = new XMLHttpRequest();
@@ -30,8 +30,8 @@ function dashDetails() {
                                     <a href="eventDisplay.html?eventType=${details[3]}&id=${details[0]}&title=${details[1]}&img=${details[12]}&startTime=${details[6]}&endTime=${details[7]}&startDate=${details[9]}&endDate=${details[10]}&description=${details[11]}&category=${details[4]}&venue=${details[5]}" class="btn btn-primary">More details</a>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <button type="button" onclick="deleteEvent('${details[14]}','${details[0]}');" class="btn btn-block btn-attend-event btn-outline-danger">Delete Event</button>
+                            <div class="col-3 btn-attend-event">
+                                <button type="button" onclick="deleteEvent('${details[14]}','${details[0]}');" class="btn btn-block  btn-outline-danger">Delete Event</button>
                             </div>
                         </div>
                     </div>
