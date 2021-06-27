@@ -20,3 +20,4 @@ function loggedInChanges()
         document.getElementById("login").href=`userDashboard.html?emailID=${email}`;
     }
 }
+document.addEventListener("DOMContentLoaded",loggedInChanges,false);

@@ -11,7 +11,7 @@ function putEventDetails(){
     var params=(new URL(document.location)).searchParams;
     var event_date= document.getElementById('date');
     
-    shareFriends.innerHTML=document.location;
+    //shareFriends.innerHTML=document.location;
     event_Title.innerHTML=params.get("title");
     event_Img.src=params.get("img");
     event_date.innerHTML=params.get("startDate")+" to "+params.get("endDate");
