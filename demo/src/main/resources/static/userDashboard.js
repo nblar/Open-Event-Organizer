@@ -2,6 +2,8 @@ function dashDetails() {
     var params = (new URL(document.location)).searchParams;
     var data = JSON.stringify({ "email": params.get("emailID") });
     var xhr = new XMLHttpRequest();
+    let display = document.querySelector(".event-card-container");
+    display.innerHTML="";
     xhr.withCredentials = false;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
@@ -10,10 +12,9 @@ function dashDetails() {
                 console.log("Success");
                 let elem = this.responseText;
                 let obj = JSON.parse(elem);
-               
-                var display = document.querySelector(".event-card-container");
+                console.log(obj);
                 if(obj===null)
-                {   display.innerHTML="";
+                {  
                     display.innerHTML='<h3">No Events Created<h3>';
                 }else{
                     display.innerHTML="";
@@ -55,7 +56,26 @@ function dashDetails() {
 
     xhr.send(data);
 }
-
+function deleteAttendEvent(userEmail,eventID){
+    console.log("@@@@@@@@ ", userEmail, " ########## ",eventID);
+    var data = JSON.stringify({ "email": userEmail,"eventId":eventID });
+    console.log("~~~~~~~~ ", data);
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            var status_code = this.status;
+            if (status_code == 200) {
+                console.log("event deleted successfully");
+                document.getElementById(""+eventID).style.display="none";
+            }
+        }
+    });
+    xhr.open("POST", "http://localhost:8080/deleteAttendEvent");
+    xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE1OTg1ODY4OTQsImlhdCI6MTU5ODU1MDg5NH0.rnwwXGxDN5z3Y7Cz0z_MeCwpUJ0RLbVvYce5xYWMwd8");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data);
+}
 function deleteEvent(userEmail,eventID) {
 	console.log("@@@@@@@@ ", userEmail, " ########## ",eventID);
     var data = JSON.stringify({ "email": userEmail,"eventId":eventID });
@@ -67,7 +87,7 @@ function deleteEvent(userEmail,eventID) {
             var status_code = this.status;
             if (status_code == 200) {
                 console.log("event deleted successfully");
-                document.getElementById(""+eventID).remove;
+                document.getElementById(""+eventID).style.display="none";
             }
         }
     });
@@ -86,6 +106,8 @@ document.addEventListener("DOMContentLoaded",setUserName,false);
 function displayAttendedEvents(){
     var params = (new URL(document.location)).searchParams;
     var data = JSON.stringify({ "email": params.get("emailID") });
+    let display = document.querySelector(".event-card-container");
+    display.innerHTML="";
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
     xhr.addEventListener("readystatechange", function () {
@@ -95,12 +117,12 @@ function displayAttendedEvents(){
                 console.log("Success");
                 let elem = this.responseText;
                 let obj = JSON.parse(elem);
-                var display = document.querySelector(".event-card-container");
+               
                 
                 Object.keys(obj).forEach(function (key) {
                     let details = obj[key];
                     console.log(obj[key]);
-                    display.innerHTML="";
+                  
                     var card = `  <div class="row">
                     <div class="card" id="${details[0]}">
                         <div class="row">
@@ -115,7 +137,7 @@ function displayAttendedEvents(){
                                 </div>
                             </div>
                             <div class="col-3 btn-attend-event">
-                                <button type="button" onclick="deleteEvent('${details[14]}','${details[0]}');" class="btn btn-block  btn-outline-danger">Delete Event</button>
+                                <button type="button" onclick="deleteEvent('${details[14]}','${details[0]}');" class="btn btn-block  btn-outline-danger">UnAttend Event</button>
                             </div>
                         </div>
                     </div>
