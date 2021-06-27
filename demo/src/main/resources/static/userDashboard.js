@@ -3,6 +3,7 @@ function dashDetails() {
     
     var username = document.getElementById("username");
     var data = JSON.stringify({ "email": params.get("emailID") });
+    username.innerHTML = params.get("emailID");
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
     xhr.addEventListener("readystatechange", function () {
@@ -13,7 +14,7 @@ function dashDetails() {
                 let elem = this.responseText;
                 let obj = JSON.parse(elem);
                 var display = document.querySelector(".event-card-container");
-                username.innerHTML = localStorage.getItem("email");
+                
                 Object.keys(obj).forEach(function (key) {
                     let details = obj[key];
                     console.log(obj[key]);

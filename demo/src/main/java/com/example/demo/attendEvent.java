@@ -12,44 +12,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 @CrossOrigin(origins="*")
 @RestController
-@RequestMapping("deleteEvent")
+@RequestMapping("attendEvent")
 
-public class deleteEvent {
-	String email;
+public class attendEvent {
+	String userEmail;
 	String eventId;
-	
-	
-	
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
-
-
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-
-
-
 	public String getEventId() {
 		return eventId;
 	}
-
-
-
 	public void setEventId(String eventId) {
 		this.eventId = eventId;
 	}
-
-
-
+	
 	@PostMapping(consumes={MediaType.APPLICATION_JSON_VALUE}, produces= {MediaType.APPLICATION_JSON_VALUE})
-	public void deleteEvents(@RequestBody deleteEvent d) {
+	public String attendEvents(@RequestBody attendEvent ae) {
 		
-		
+		System.out.print("I'm HERE");
 		try (
 	   			 Connection conn = DriverManager.getConnection(
 	              		  "jdbc:mysql://localhost:3306/openevent?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
@@ -57,24 +45,20 @@ public class deleteEvent {
 	                
 	                  Statement stmt = conn.createStatement();
 	                ){
+			System.out.print(ae.getUserEmail()+" "+ ae.getEventId());
 			
-			String query="delete from userEvents where email=? and eventId=?";
+			String query="insert into attendEvent values(?,?)";
 			PreparedStatement pre=conn.prepareStatement(query);
-			pre.setString(1, d.getEmail());
-			pre.setString(2, d.getEventId());
+			pre.setString(1, ae.getUserEmail());
+			pre.setString(2, ae.getEventId());
 			pre.execute();
+				
 			
-			System.out.println("Successful Deletion from userEvents ");
-			
-			
-			query="delete from event where EventId=?";
-			pre=conn.prepareStatement(query);
-			pre.setString(1, d.getEventId());
-			pre.execute();
-			
-			System.out.println("Successful Deletion from Event table ");
-		}catch(Exception e) {
-	                	
+		}catch (Exception e) {
+	                	e.printStackTrace();
 	                }
+		
+		
+		return "Successfully Resgistered";
 	}
 }

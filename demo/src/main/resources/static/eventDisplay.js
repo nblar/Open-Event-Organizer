@@ -28,7 +28,8 @@ function attendEvent(){
         window.location.href="login.html";
     }else{
         var params=(new URL(document.location)).searchParams;
-        var data = JSON.stringify({ "email": localStorage.get("email"),"eventId": params.get("id")});
+        var data = JSON.stringify({ "userEmail": localStorage.getItem("email"),"eventId": params.get("id")});
+        console.log(data);
         var xhr = new XMLHttpRequest();
         xhr.withCredentials = false;
         xhr.addEventListener("readystatechange", function () {
