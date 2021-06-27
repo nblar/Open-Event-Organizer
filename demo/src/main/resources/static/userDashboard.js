@@ -126,3 +126,5 @@ function displayAttendedEvents(){
 
     xhr.send(data);
 }
+
+document.addEventListener("DOMContentLoaded", displayAttendedEvents, false);
