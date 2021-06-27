@@ -15,7 +15,7 @@ function dashDetails() {
                 console.log(obj);
                 if(obj===null)
                 {  
-                    display.innerHTML='<h3">No Events Created<h3>';
+                    display.innerHTML='<h3>No Events Created<h3>';
                 }else{
                     display.innerHTML='';
                     Object.keys(obj).forEach(function (key) {
@@ -40,7 +40,7 @@ function dashDetails() {
                                 </div>
                             </div>
                         </div>
-                    </div>`;
+                        <br>`;
                         display.innerHTML += card;
                     });
                 }
@@ -137,11 +137,11 @@ function displayAttendedEvents(){
                                 </div>
                             </div>
                             <div class="col-3 btn-attend-event">
-                                <button type="button" onclick="deleteEvent('${details[14]}','${details[0]}');" class="btn btn-block  btn-outline-danger">UnAttend Event</button>
+                                <button type="button" onclick="deleteAttendEvent('${details[14]}','${details[0]}');" class="btn btn-block  btn-outline-danger">UnAttend Event</button>
                             </div>
                         </div>
                     </div>
-                </div>`;
+                    <br>`;
                     display.innerHTML += card;
                 });
 
