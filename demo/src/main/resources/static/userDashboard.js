@@ -27,7 +27,7 @@ function dashDetails() {
                                 <div class="card-body">
                                     <h5 class="card-title">${details[1]}</h5>
                                     <p class="card-text">${details[11]}</p>
-                                    <a href="eventDisplay.html?eventType=${eventType}&id=${eventID}&title=${title}&img=${img1}&startTime=${startTime}&endTime=${endTime}&startDate=${startDate}&endDate=${endDate}&eventType=${eventType}&description=${description}&category=${category}&venue=${venue}" class="btn btn-primary">More details</a>
+                                    <a href="eventDisplay.html?eventType=${details[3]}&id=${details[0]}&title=${details[1]}&img=${details[12]}&startTime=${details[6]}&endTime=${details[7]}&startDate=${details[9]}&endDate=${details[10]}&description=${details[11]}&category=${details[4]}&venue=${details[5]}" class="btn btn-primary">More details</a>
                                 </div>
                             </div>
                         </div>
