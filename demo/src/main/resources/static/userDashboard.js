@@ -12,10 +12,11 @@ function dashDetails() {
                 let obj = JSON.parse(elem);
                
                 var display = document.querySelector(".event-card-container");
-                if(obj==null)
-                {
-                    display.innerHTML='<h3 style="text-align:center;">No Events Created<h3>';
+                if(obj===null)
+                {   display.innerHTML="";
+                    display.innerHTML='<h3">No Events Created<h3>';
                 }else{
+                    display.innerHTML="";
                     Object.keys(obj).forEach(function (key) {
                         let details = obj[key];
                         console.log(obj[key]);
@@ -99,7 +100,7 @@ function displayAttendedEvents(){
                 Object.keys(obj).forEach(function (key) {
                     let details = obj[key];
                     console.log(obj[key]);
-                    
+                    display.innerHTML="";
                     var card = `  <div class="row">
                     <div class="card" id="${details[0]}">
                         <div class="row">
