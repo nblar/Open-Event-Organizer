@@ -47,4 +47,4 @@ function dashDetails() {
     xhr.send(data);
 }
 
-document.addEventListener("DOMContentLoaded", dashDetails, false);
+document.getElementById("manage_events").addEventListener("click", dashDetails, false);
