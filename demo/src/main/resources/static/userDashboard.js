@@ -31,7 +31,7 @@ function dashDetails() {
                                 </div>
                             </div>
                             <div class="col-3">
-                                <button type="button" onclick="deleteEvent(${details[14]},${details[0]})" class="btn btn-block btn-attend-event btn-outline-danger">Delete Event</button>
+                                <button type="button" onclick="deleteEvent('${details[14]}','${details[0]}');" class="btn btn-block btn-attend-event btn-outline-danger">Delete Event</button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,9 @@ function dashDetails() {
 }
 
 function deleteEvent(userEmail,eventID) {
-    var data = JSON.stringify({ "email": userEmail,"eventID":eventID });
+	console.log("@@@@@@@@ ", userEmail, " ########## ",eventID);
+    var data = JSON.stringify({ "email": userEmail,"eventId":eventID });
+    console.log("~~~~~~~~ ", data);
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
     xhr.addEventListener("readystatechange", function () {
