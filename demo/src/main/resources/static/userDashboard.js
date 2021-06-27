@@ -13,10 +13,11 @@ function dashDetails() {
                 let elem = this.responseText;
                 let obj = JSON.parse(elem);
                 var display = document.querySelector(".event-card-container");
-                let details = obj[key];
-                username.innerHTML = details[14];
+                username.innerHTML = localStorage.getItem("email");
                 Object.keys(obj).forEach(function (key) {
+                    let details = obj[key];
                     console.log(obj[key]);
+                    
                     var card = `  <div class="row">
                     <div class="card" id="${details[0]}">
                         <div class="row">

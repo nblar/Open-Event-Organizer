@@ -22,6 +22,7 @@ function putEventDetails(){
 document.addEventListener("DOMContentLoaded",putEventDetails,false);
 
 function attendEvent(){
+    console.log("attend event called");
     if(localStorage.getItem("email")===null)
     {
         window.location.href="login.html";
@@ -43,5 +44,6 @@ function attendEvent(){
         xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE1OTg1ODY4OTQsImlhdCI6MTU5ODU1MDg5NH0.rnwwXGxDN5z3Y7Cz0z_MeCwpUJ0RLbVvYce5xYWMwd8");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(data);
+        console.log("data send");
     }
 }
