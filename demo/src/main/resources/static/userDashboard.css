@@ -78,3 +78,10 @@ body{
     font-weight: 900;
     font-style: cursive;
 }
+.card-img{
+    height: 400px;
+    width:400px;
+}
+.card-body{
+    width:inherit;
+}

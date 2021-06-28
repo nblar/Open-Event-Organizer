@@ -135,3 +135,16 @@ function UploadImage() {
         myWidget.open();
     }, false);
 }
+function logout(){
+    localStorage.setItem("email")=null;
+    window.location.href="index.html";
+}
+function loggedInChanges()
+{
+    if(!(localStorage.getItem("email")===null))
+    {
+        var email=localStorage.getItem("email");
+        document.getElementById("login").innerHTML=email;
+        document.getElementById("login").href=`userDashboard.html?emailID=${email}`;
+    }
+}

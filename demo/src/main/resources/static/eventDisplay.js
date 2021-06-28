@@ -75,3 +75,19 @@ function attendedEvent(){
         console.log("data send");
 }
 document.addEventListener("DOMContentLoaded",attendedEvent,false);
+
+function loggedInChanges()
+{
+    if(!(localStorage.getItem("email")===null))
+    {
+        var email=localStorage.getItem("email");
+        document.getElementById("login").innerHTML=email;
+        document.getElementById("login").href=`userDashboard.html?emailID=${email}`;
+    }
+}
+document.addEventListener("DOMContentLoaded",loggedInChanges,false);
+
+function logout(){
+    localStorage.setItem("email")=null;
+    window.location.href="index.html";
+}

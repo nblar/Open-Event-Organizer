@@ -21,3 +21,7 @@ function loggedInChanges()
     }
 }
 document.addEventListener("DOMContentLoaded",loggedInChanges,false);
+function logout(){
+    localStorage.setItem("email")=null;
+    window.location.href="index.html";
+}

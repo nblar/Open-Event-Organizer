@@ -157,3 +157,8 @@ function displayAttendedEvents(){
 }
 
 document.addEventListener("DOMContentLoaded", displayAttendedEvents, false);
+
+function logout(){
+    localStorage.setItem("email")=null;
+    window.location.href="index.html";
+}
